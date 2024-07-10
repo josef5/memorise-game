@@ -57,13 +57,17 @@ struct CardView: View {
         ZStack {
             let base = RoundedRectangle(cornerRadius: 12)
             
-            if isFaceUp {
+            
+            // Both sides always present so they are not collapsed by LazyVGrid
+            // Face up
+            Group {
                 base.fill(.white)
                 base.strokeBorder(lineWidth: 2)
                 Text(content).font(.largeTitle)
-            } else {
-                base.fill()
-            }
+            }.opacity(isFaceUp ? 1 : 0)
+            
+            // Face down
+            base.fill().opacity(isFaceUp ? 0 : 1)
         }.onTapGesture {
             isFaceUp.toggle()
         }
