@@ -13,9 +13,21 @@ struct ContentView: View {
     @State var cardCount = 4
     
     var body: some View {
-        HStack {
-            ForEach(emojis.indices, id: \.self) { index in
+        VStack {
+            ScrollView {
+                cards
+            }
+            Spacer()
+            cardCountAdjusters
+        }
+        .padding()
+    }
+    
+    var cards: some View {
+        LazyVGrid(columns: [GridItem(.adaptive(minimum: 120))]) {
+            ForEach(0..<cardCount, id: \.self) { index in
                 CardView(content: emojis[index], isFaceUp: true)
+                    .aspectRatio(2/3, contentMode: .fit)
             }
         }
         .foregroundColor(.orange)
