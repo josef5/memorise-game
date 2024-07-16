@@ -63,8 +63,8 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
         var id: String
         
         var debugDescription: String {
-                    "\(id): \(content) \(isFaceUp ? "up" : "down") \(isMatched ? "matched" : "")"
-                }
+            "\(id): \(content) \(isFaceUp ? "up" : "down") \(isMatched ? "matched" : "")"
+        }
     }
 }
 
