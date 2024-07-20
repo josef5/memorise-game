@@ -32,6 +32,7 @@ struct EmojiMemoryGameView: View {
                 .onTapGesture {
                     viewModel.choose(card)
                 }
+                    .overlay(FlyingNumber(number: scoreChange(causedBy: card)))
         }
         .foregroundColor(viewModel.color)
     }
