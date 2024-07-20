@@ -46,6 +46,7 @@ struct CardView: View {
             .padding(Constants.inset)
             .cardify(isFaceUp: card.isFaceUp)
             .opacity(card.isFaceUp || !card.isMatched ? 1 : 0)
+                    .cardify(isFaceUp: card.isFaceUp)
     }
 }
 
